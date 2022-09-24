@@ -8,11 +8,13 @@ jobs:
       run: |
         pwd
         who am i
+
     - name: ll
       run: |
         ls -al
         cd /home/
         ls -al
+
     - name: download screenfetch and ls
       run: |
         git clone https://github.com/KittyKatt/screenFetch.git
@@ -24,12 +26,16 @@ jobs:
     - name: install though apt
       run: |
         sudo apt install -y screenfetch
+
     - name: install tmux
       run: sudo apt install -y tmux
+
     - name: use checkout to download
-      use: KittyKatt/screenFetch@master
+      uses: KittyKatt/screenFetch@master
+
     - name: ls
       run: ls -al
+      
     - name: run the screenfetch
     - run: |
         screenfetch -v
