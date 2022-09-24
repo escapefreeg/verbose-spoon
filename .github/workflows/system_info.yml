@@ -16,7 +16,7 @@ jobs:
       run: |
         mkdir archieve
         cd ./archieve
-        tar -zcvf ../screenFetch
+        tar -zcvf test.tar ../screenFetch
     
     - name: ls too
       run: ls ./archieve
