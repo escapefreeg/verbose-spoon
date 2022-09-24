@@ -28,10 +28,14 @@ jobs:
       run: sudo apt install -y tmux
 
     - name: use checkout to download
-      uses: KittyKatt/screenFetch@master
+      uses: actions/checkout@v3
 
     - name: ls
-      run: ls -al
+      run: |
+        ls -al
+        cd .github
+        ls
+        cd ..
 
     - name: run the screenfetch
       run: |
