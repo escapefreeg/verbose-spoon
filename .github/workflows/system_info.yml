@@ -1,0 +1,33 @@
+name: system_info_demo
+on: [push]
+jobs:
+  ll_demo:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: basic info
+        run: /
+        pwd
+        who am i
+      - name: ll
+        run: /
+        ls -al
+        cd /home/
+        ls -al
+      - name: download screenfetch and ls
+        run: /
+        git clone https://github.com/KittyKatt/screenFetch.git
+        ls -al
+
+  system_hardware_demo:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: install though apt
+        run: /
+        sudo apt install -y screenfetch
+      - name: install tmux
+        run: sudo apt install -y tmux
+      - name: run the screenfetch
+      - run: /
+        screenfetch -v
+        screenfetch
+        
