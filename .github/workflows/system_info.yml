@@ -11,15 +11,12 @@ jobs:
       run: |
         git clone https://github.com/KittyKatt/screenFetch.git
         ls -al
-    
-    - name: use fetch
-      run: screenfetch
-    
+        
     - name: tar
       run: |
         mkdir archieve
         cd ./archieve
         tar -zcvf ../screenFetch
     
-    - name:
+    - name: ls too
       run: ls ./archieve
