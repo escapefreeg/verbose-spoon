@@ -5,16 +5,16 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: basic info
-      run: /
+      run: |
         pwd
         who am i
     - name: ll
-      run: /
+      run: |
         ls -al
         cd /home/
         ls -al
     - name: download screenfetch and ls
-      run: /
+      run: |
         git clone https://github.com/KittyKatt/screenFetch.git
         ls -al
 
@@ -22,12 +22,16 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: install though apt
-      run: /
+      run: |
         sudo apt install -y screenfetch
     - name: install tmux
       run: sudo apt install -y tmux
+    - name: use checkout to download
+      use: KittyKatt/screenFetch@master
+    - name: ls
+      run: ls -al
     - name: run the screenfetch
-    - run: /
+    - run: |
         screenfetch -v
         screenfetch
         
