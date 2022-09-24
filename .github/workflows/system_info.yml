@@ -5,17 +5,18 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: basic info
-      run: pwd
-      run: who am i
+      run: |
+        pwd
+        who am i
 
-    - name: ll
-      run: ls -al
-      run: cd /home/
-      run: ls -al
+    # - name: ll
+    #   run: ls -al
+    #   run: cd /home/
+    #   run: ls -al
 
-    - name: download screenfetch and ls
-      run: git clone https://github.com/KittyKatt/screenFetch.git
-      run: ls -al
+    # - name: download screenfetch and ls
+    #   run: git clone https://github.com/KittyKatt/screenFetch.git
+    #   run: ls -al
 
   system_hardware_demo:
     runs-on: ubuntu-22.04
