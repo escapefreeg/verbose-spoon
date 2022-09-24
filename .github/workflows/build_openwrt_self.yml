@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt
+name: Self Build OpenWrt
 
 on:
   repository_dispatch:
@@ -47,7 +47,12 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo apt-get install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils rsync unzip zlib1g-dev clang
+        sudo apt-get install -y build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils rsync unzip zlib1g-dev clang wget
+        sudo apt install build-essential ccache ecj fastjar file g++ gawk \
+        gettext git java-propose-classpath libelf-dev libncurses5-dev \
+        libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget \
+        python-distutils-extra python3-setuptools python3-dev rsync subversion \
+        swig time xsltproc zlib1g-dev 
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
@@ -60,7 +65,20 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-# todo
+
+  # 选择最新的版本
+    - name: Chose the 22.03.0 version
+      run: |
+        cd openwrt
+        git reset --hard v22.03.0
+        
+  # download openclash
+    - name: Download OpenClash
+      run: |
+        wget https://github.com/vernesong/OpenClash/archive/master.zip
+        unzip master.zip
+        cp -r OpenClash-master/luci-app-openclash openwrt/package
+    
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default

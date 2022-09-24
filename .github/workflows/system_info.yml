@@ -1,5 +1,12 @@
 name: system_info_demo
-on: [push]
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 jobs:
   ll_demo:
     runs-on: ubuntu-22.04
