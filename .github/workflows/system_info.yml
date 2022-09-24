@@ -34,6 +34,7 @@ jobs:
       run: ls -al
 
     - name: run the screenfetch
-      run: screenfetch -v
-      run: screenfetch
+      run: |
+        screenfetch -v
+        screenfetch
         
