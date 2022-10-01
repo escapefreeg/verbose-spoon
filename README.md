@@ -1,6 +1,7 @@
 # Actions-OpenWrt
 ## learn from P3TERX [link](https://github.com/P3TERX/Actions-OpenWrt)
-## config
+## 22-09-30 offical x64 22.03 failed
+### config
 - target: x64
 - source code: offical
 - source code version: branch_openwrt-22.03_newest
