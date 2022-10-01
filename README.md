@@ -6,6 +6,7 @@
 - source code version: branch_openwrt-22.03_newest
 - have cat: yes
 ### additional info
+- ubuntu version: 22.04
 - wget x2
 - frpc,frps
 - luci-nginx
