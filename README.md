@@ -6,6 +6,7 @@
 - source code: offical
 - source code version: branch_openwrt-22.03_newest
 - have cat: yes
+- config name: .config
 ### additional info
 - ubuntu version: 22.04
 - wget x2
