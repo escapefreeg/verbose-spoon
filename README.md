@@ -6,6 +6,18 @@
 - target: x64
 - source code: offical
 - source code version: branch_openwrt-22.03_newest
+- have cat: yes
+- config name: .x64allv1
+### additional info
+- ubuntu version: 22.04
+- firewall and dnsmasq
+- no wget, frpc and frps
+
+## 22-10-03 offical x64 22.03 success
+### config
+- target: x64
+- source code: offical
+- source code version: branch_openwrt-22.03_newest
 - have cat: no
 - config name: .x64change2
 ### additional info
