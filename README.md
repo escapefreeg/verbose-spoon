@@ -1,6 +1,14 @@
 # Actions-OpenWrt
 ## learn from P3TERX [link](https://github.com/P3TERX/Actions-OpenWrt)
 
+## 22-12-10 lede K3 22.03 waiting
+### config
+- target: K3
+- source code: lede
+- source code version: master_newest
+- have cat: no
+- config name: lede_config.config
+
 ## 22-10-03 offical x64 22.03 waiting
 ### config
 - target: x64
