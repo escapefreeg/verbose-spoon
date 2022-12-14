@@ -1,0 +1,56 @@
+config_generate  ipaddr 110  host name Eva
+
+LuCI—>Collections—– <*> 
+luci
+luci-ssl-nginx
+luci-ssl-openssl
+
+LuCI—>Modules  ---Translations—- <*> chinese
+LuCI—>Modules  luci-compat
+
+LuCI—>Applications —> 
+<*>luci-app-aria2
+luci-app-airplay2
+luci-app-samba4
+
+
+6.添加USB挂载
+Base system —> <*>block-mount
+Kernel modules ---> Other modules --->  kmod-sdhci   （SD卡）
+Kernel modules ---> USB Support --->    kmod-usb-hid （usb键盘鼠标支持） 
+                                	    kmod-usb-ohci
+                    				    kmod-usb-storage (usb storage 驱动)
+                    					kmod-usb-storage-extras
+                    					kmod-usb2
+                    					kmod-usb3
+luci-app-hd-idle          硬盘休眠
+
+Kernel modules ---> Block Device ---> <> kmod-block2mtd
+Kernel modules ---> Block Device ---> <> kmod-scsi-core
+Kernel modules ---> Block Device ---> <*> kmod-scsi-generic （usb 转IDE ，SATA）
+
+7.添加硬盘格式支持
+Kernel modules —> Filesystems —> <*>kmod-fs-ext4
+                                    kmod-fs-f2fs  （overlay要用这个格式）
+Kernel modules --> Filesystems -->	
+                              	kmod-fs-ntfs (win硬盘格式只读)
+
+8.添加UTF8编码
+Kernel modules —> Native Language Support —>kmod-nls-utf8
+
+9.添加自动挂载工具
+Utilities —> Filesystem —> <*> f2fs-tools
+Utilities ---> Filesystem ---> e2fsprogs （支持ext2/ext3/ext4格式化工具）
+
+10.添加一键开关无线等工具
+Utilities —> <*> wifitoggle
+
+Utilities ---> disc ---> <> blkid （可以列出分区类型卷标等）
+Utilities ---> disc ---> <> fdisk （分区工具）
+Utilities ---> disc ---> <> lsblk （列出块设备，还能显示他们之间的依赖关系）
+Utilities ─>usb-modeswitch
+
+Utilities---→collectd---→ 选中collectd-mod-thermal
+
+11.其它重要工具
+Extra packages ---> ipv6helper 
